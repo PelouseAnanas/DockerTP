@@ -1,8 +1,7 @@
-ARG VERSION=3.15
-FROM alpine:$VERSION
+ARG VERSION=alpine
+FROM nginx:$VERSION
 ARG VERSION
-ENV MSG "Hello World !"
-RUN apk update && apk upgrade && apk --update --no-cache add bash
-RUN echo "Version $VERSION"
-ENTRYPOINT ["bash"]
-CMD ["-c", "echo $MSG"]
+ENV TIMEZONE Europe/Paris
+RUN	apk update && apk upgrade
+EXPOSE 80
+ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;"]
