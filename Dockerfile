@@ -6,3 +6,5 @@ RUN apk update && apk upgrade && apk --update --no-cache add bash
 RUN echo "Version $VERSION"
 ENTRYPOINT ["bash"]
 CMD ["-c", "echo $MSG"]
+
+cououc
